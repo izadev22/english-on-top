@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=Inter:wght@400&family=Space+Grotesk:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#14284A;      /* noite no topo */
@@ -136,22 +136,27 @@
   .route .more{margin-top:auto;padding-top:28px;color:var(--gold-soft);font-weight:700}
   .route .more:hover{color:var(--white)}
 
-  /* Speak & Go: cartão de embarque, nas cores da outra marca */
-  .ticket{--sg-navy:#1B2A41;--sg-red:#E63946;--sg-blue:#2E9BEA;
-    position:relative;display:grid;grid-template-columns:1fr 300px;margin-top:56px;background:var(--white);
-    border:2px solid var(--glacier);border-radius:18px;overflow:hidden}
-  .ticket:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;z-index:2;background:linear-gradient(90deg,var(--sg-red) 50%,var(--sg-blue) 50%)}
-  .ticket-main{display:grid;grid-template-columns:120px 1fr;gap:32px;align-items:center;padding:40px 40px 36px}
-  .sg-logo{width:120px}
-  .ticket h3{font-size:clamp(1.5rem,2.4vw,1.9rem);letter-spacing:-.02em;color:var(--sg-navy);margin-bottom:10px}
-  .ticket p{color:var(--slate);margin:0 0 22px}
-  .btn-sg{background:var(--sg-red);color:var(--white)}
-  .btn-sg:hover{background:#C92E3A}
-  .ticket-stub{position:relative;border-left:2px dashed var(--glacier);display:flex;align-items:flex-end;justify-content:center;background:#EEF5FC}
-  .ticket-stub img{width:100%;max-width:300px}
-  .ticket-stub:before,.ticket-stub:after{content:"";position:absolute;left:-13px;width:24px;height:24px;border-radius:50%;background:var(--white);border:2px solid var(--glacier)}
-  .ticket-stub:before{top:-14px}
-  .ticket-stub:after{bottom:-14px}
+  /* Speak & Go: segue o visual do site novo (speak-go.vercel.app) */
+  .ticket{--sg-ink:#032F6B;--sg-ink-faint:#7186A3;--sg-sky:#50C0FF;--sg-red:#E31C2F;--sg-red-deep:#B8121F;--sg-paper:#FBF7EE;
+    display:grid;grid-template-columns:1fr 330px;gap:56px;align-items:center;margin-top:56px;padding:52px 56px;border-radius:22px;
+    background:radial-gradient(ellipse 120% 100% at 30% 0%,#0B4A8C 0%,var(--sg-ink) 55%,#021B40 100%);color:var(--white)}
+  .ticket h3{font:700 clamp(1.7rem,2.8vw,2.3rem)/1.08 'Space Grotesk',sans-serif;letter-spacing:-.01em;margin-bottom:14px;max-width:18ch}
+  .ticket p{font-family:'Inter',sans-serif;color:#C9DDF2;margin:0 0 28px;max-width:52ch}
+  .btn-sg{font-family:'Space Grotesk',sans-serif;font-weight:600;background:var(--sg-red);color:var(--white);box-shadow:0 10px 24px -8px rgba(227,28,47,.55)}
+  .btn-sg:hover{background:var(--sg-red-deep)}
+  .sg-pass{position:relative;display:grid;grid-template-columns:1fr 56px;background:var(--sg-paper);color:var(--sg-ink);border-radius:18px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);transform:rotate(1.5deg)}
+  .sg-pass-main{padding:20px 18px 18px;border-right:2px dashed rgba(3,47,107,.22)}
+  .sg-brand{display:flex;align-items:center;gap:8px;margin-bottom:14px;font:400 10.5px/1 'Space Mono',monospace;letter-spacing:.08em;color:var(--sg-ink-faint)}
+  .sg-brand img{height:24px;width:auto}
+  .sg-route{display:flex;align-items:center;gap:10px;font:700 1.05rem/1 'Space Grotesk',sans-serif}
+  .sg-route i{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--sg-ink-faint) 0 5px,transparent 5px 10px);position:relative}
+  .sg-route i:after{content:"";position:absolute;left:50%;top:-4px;border-left:9px solid var(--sg-red);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+  .sg-photo{margin-top:14px;border-radius:12px;overflow:hidden;background:var(--sg-ink);aspect-ratio:1}
+  .sg-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 100%}
+  .sg-stub{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:20px 0;background:var(--sg-ink);border-radius:0 18px 18px 0}
+  .sg-stub span{writing-mode:vertical-rl;transform:rotate(180deg);font:700 10.5px/1 'Space Mono',monospace;letter-spacing:.14em;color:var(--sg-sky)}
+  .sg-stub b{width:18px;height:72px;background:repeating-linear-gradient(90deg,var(--white) 0 2px,transparent 2px 4px,var(--white) 4px 5px,transparent 5px 8px);opacity:.85}
 
   /* programa: a subida */
   .climb{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
@@ -207,10 +212,8 @@
     .routes{grid-template-columns:1fr}
     .wrap.formats{grid-template-columns:1fr;gap:32px;margin-top:64px}
     .route.main{grid-row:auto}
-    .ticket{grid-template-columns:1fr}
-    .ticket-stub{border-left:0;border-top:2px dashed var(--glacier);order:-1;height:268px;overflow:hidden}
-    .ticket-stub img{max-width:260px}
-    .ticket-stub:before,.ticket-stub:after{display:none}
+    .ticket{grid-template-columns:1fr;gap:40px;padding:44px 36px}
+    .sg-pass{width:min(100%,320px);justify-self:center}
     .principle,.principle.wide{grid-column:span 6}
     .steps{grid-template-columns:1fr 1fr}
     .panel{gap:28px;padding:32px 28px}
@@ -228,8 +231,8 @@
     .wrap.formats{width:calc(100% - 32px)}
     .modes{grid-template-columns:1fr;gap:20px}
     .camp .nm{display:none}
-    .ticket-main{grid-template-columns:1fr;gap:20px;padding:32px 24px 28px}
-    .sg-logo{width:96px}
+    .ticket{padding:36px 22px 40px}
+    .sg-pass{transform:none}
     .camp .lv{font-size:1.05rem}
     .camp .dot{width:18px;height:18px}
     .panel h3{font-size:1.8rem}
@@ -356,16 +359,18 @@
       </div>
 
       <article class="ticket" aria-labelledby="sg-t">
-        <div class="ticket-main">
-          <img class="sg-logo" src="assets/speak-go-logo.png" alt="Speak & Go, by Renata Bettarello" width="283" height="306" loading="lazy">
-          <div>
-            <h3 id="sg-t">Vai viajar? Conheça o Speak &amp; Go.</h3>
-            <p>É o meu curso gravado de inglês para viagens. Do aeroporto ao hotel, do restaurante ao passeio, eu te ensino as expressões que você vai usar de verdade, para você se comunicar com confiança e aproveitar cada momento.</p>
-            <a class="btn btn-sg" href="https://speak-go.vercel.app/" target="_blank" rel="noopener">Conhecer o Speak &amp; Go</a>
-          </div>
+        <div>
+          <h3 id="sg-t">Vai viajar? Conheça o Speak &amp; Go.</h3>
+          <p>É o meu curso gravado de inglês para viagens. Do aeroporto ao hotel, do restaurante ao passeio, eu te ensino as expressões que você vai usar de verdade, para você se comunicar com confiança e aproveitar cada momento.</p>
+          <a class="btn btn-sg" href="https://speak-go.vercel.app/" target="_blank" rel="noopener">Conhecer o Speak &amp; Go</a>
         </div>
-        <div class="ticket-stub">
-          <img src="assets/renata-speak-go.png" alt="Teacher Renata apontando para quem vê a página, apoiada em uma mala de viagem" width="620" height="623" loading="lazy">
+        <div class="sg-pass" aria-hidden="true">
+          <div class="sg-pass-main">
+            <div class="sg-brand"><img src="assets/speak-go-logo.png" alt="" width="283" height="306" loading="lazy">BOARDING PASS</div>
+            <div class="sg-route">MEDO <i></i> FLUÊNCIA</div>
+            <div class="sg-photo"><img src="assets/renata-speak-go.png" alt="" width="620" height="623" loading="lazy"></div>
+          </div>
+          <div class="sg-stub"><span>SPEAK &amp; GO</span><b></b></div>
         </div>
       </article>
     </div>
